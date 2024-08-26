@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<!--
+	Striped by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Add</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+    </head>
+    <body>
+        <div id="content">
+            <div class="box post text-field">
+                <form action="/admin/add" method="POST" class="col s12">
+                    <div class="col-12">
+                        <div>
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title">
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div>
+                            <label for="caption">Caption:</label>
+                            <input type="text" id="caption" name="caption" placeholder="(Optional)">
+                        </div>
+                    </div>
+    
+                    <div class="col-12">
+                        <div class="input-field">
+                            <h5>Tell Us Your Story:</h5>
+                            <textarea id="body" name="body"></textarea>
+                        </div>
+                    </div>
+            
+                    <div>
+                        <input type="submit" value="Save">
+                        <a href="/" class="btn orange">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <%- include('./partials/sidebar.ejs') %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.22.0/ckeditor.js" integrity="sha512-RSWDsT/H7QchdPKU7L7Wffwm1BA2s4TV92E6jdrAWmQVHqlT4EkozepxCCbhVNzx6fPbcQNxWJM/5tCBonuP7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        CKEDITOR.replace('body', {
+            plugins: 'wysiwygarea, toolbar, basicstyles, link, autogrow'
+        })
+    </script>
+    </body>
+</html>

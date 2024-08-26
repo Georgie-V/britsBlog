@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<!--
+	Striped by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	
+	<!-- Header Partials -->
+	<%- include('./partials/header.ejs') %>
+
+	<body class="is-preload">
+
+		<!-- Content -->
+			<div id="content">
+				<div class="inner">
+
+					<!-- Feed -->
+						
+                    <%- include('./partials/feed.ejs') %>
+
+					<!-- Pagination -->
+					<%- include('./partials/pagination.ejs') %>
+
+				</div>
+			</div>
+
+		<!-- Sidebar -->
+        <%- include('./partials/sidebar.ejs') %>
+        
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

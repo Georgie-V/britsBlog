@@ -1,0 +1,44 @@
+<div class="pagination">
+    <!--<a href="#" class="button previous">Previous Page</a>-->
+    <div class="pages">
+        <% if (pages > 0) { %>
+            <% if (page == 1) { %>
+                <a class="disabled">First</a>
+            <% } else { %>
+                <a href="/">First</a>
+            <% } %>
+    
+            <% if (Number(page) - 1 > 0) { %>
+                <a href="/?page=<%= Number(page) - 1 %>"><</a>
+            <% } else { %>
+                <a class="disabled"><</a>
+            <% } %>
+            
+            <% let i = (Number(page) > 5 ? Number(page) - 4 : 1) %>
+            
+            <% if (i !== 1) { %>
+                <a>...</a>
+            <% } %>
+            
+            <% for (; i <= (Number(page) + 4) && i <= pages; i++) { %>
+                <% if (i == page) { %>
+                    <a href="<%= '/?page=' + i %>" class="active"><%= i %></a>
+                <% } else { %>
+                    <a href="<%= '/?page=' + i %>"><%= i %></a>
+                <% } %>
+            <% } %>
+            
+            <% if (Number(page) + 1 <= pages) { %>
+                <a href="/?page=<%= Number(page) + 1 %>">></a>
+            <% } else { %>
+                <a class="disabled">></a>
+            <% } %>
+            
+            <% if (page == pages) { %>
+                <a class="disabled">Last</a>
+            <% } else { %>
+                <a href="<%= '/?page=' + pages %>">Last</a>
+            <% } %>
+        <% } %>
+    </div>
+</div>

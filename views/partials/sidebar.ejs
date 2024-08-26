@@ -1,0 +1,52 @@
+<div id="sidebar">
+
+    <!-- Logo -->
+        <h1 id="logo"><a href="#">Brit's Blog</a></h1>
+
+    <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li <% if (title === 'index') { %>class="current" <% } %>><a href="/">Latest Post</a></li>
+                <li <% if (title === 'archives') { %>class="current" <% } %>><a href="#">Archives</a></li>
+                <li <% if (title === 'about me') { %>class="current" <% } %>><a href="/about-me">About Me</a></li>
+                <li <% if (title.includes('admin')) { %>class="current" <% } %>><a href="/admin">ADMIN</a></li>
+            </ul>
+        </nav>
+
+    <!-- Search -->
+        <section class="box search">
+            <form method="post" action="#">
+                <input type="text" class="text" name="search" placeholder="Search" />
+            </form>
+        </section>
+
+    <!-- Recent Posts -->
+        <section class="box recent-posts">
+            <header>
+                <h2>Recent Posts</h2>
+            </header>
+            <ul>
+                <% recentPosts.forEach(post => { %>
+                    <li><a href="/<%= post._id %>"><%= post.title %></a></li>
+                <% }) %>
+            </ul>
+        </section>
+
+    <!-- Recent Comments -->
+        <section class="box recent-comments">
+            <header>
+                <h2>Recent Comments</h2>
+            </header>
+            <ul>
+                <li>case on <a href="#">Lorem ipsum dolor</a></li>
+                <li>molly on <a href="#">Sed dolore magna</a></li>
+                <li>case on <a href="#">Sed dolore magna</a></li>
+            </ul>
+        </section>
+
+    <!-- Copyright -->
+        <ul id="copyright">
+            <li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+
+</div>
