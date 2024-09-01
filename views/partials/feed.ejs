@@ -29,9 +29,9 @@
                         <li><a href="#" class="icon brands fa-facebook-f">128</a></li>
                     </ul>
                 </div>
-                <a href="/<%= post._id %>" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+                <a href="/post/<%= post._id %>" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
                 <% if (post.body.length > 500) { %>
-                    <%- post.body.substring(0, 500) + "..." %> <a href="/<%= post._id %>">Read more</a>
+                    <%- post.body.substring(0, 500) + "..." %> <a href="/post/<%= post._id %>">Read more</a>
                 <% } else { %>
                     <%- post.body %>
                 <% } %>

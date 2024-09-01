@@ -1,0 +1,52 @@
+<!-- Comment Section -->
+<div class="inner comment-section">
+    <h2 class="comment-title"><i><%= commentCount %> Comments</i></h2>
+    
+    <% comments.forEach(comment => { %>
+        <article class="box post">
+            <div class="comment-head">
+                <!--
+                    Note: Titles and subtitles will wrap automatically when necessary, so don't worry
+                    if they get too long. You can also remove the <p> entirely if you don't
+                    need a subtitle.
+                -->
+                <h3 class="comment-name"><%= comment.name %></h3>
+                <span class="date"><i><%= moment(comment.createdAt).format('MMMM Do, YYYY @ h:mm a'); %></i></span>
+            </div>
+            <%- comment.comment %>
+        </article>
+    <% }) %>
+</div>
+
+<!-- Comment Submission Form -->
+
+<div class="inner">
+    <form action="/post/<%= post._id %>/comment/add" method="POST" class="row">
+        
+        <div class="col-12">
+            <div class="input-field">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment"></textarea>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="input-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="input-field">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
+            </div>
+        </div>
+
+        <div>
+            <input type="submit" value="Save">
+            <a href="/post/<%= post._id %>" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

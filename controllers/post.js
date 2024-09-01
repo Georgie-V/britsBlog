@@ -1,4 +1,5 @@
 const Post = require("../models/Post");
+const Comments = require('../models/Comments');
 const moment = require('moment');
 
 exports.getAdd = async (req, res) => {
@@ -18,7 +19,7 @@ exports.postAdd = async (req, res) => {
     }
   };
 
-// @desc Show a single post
+// @desc Show a single post and its comments
 // @route GET /:id  
 exports.getPost = async (req, res) => {
   try {
@@ -26,11 +27,14 @@ exports.getPost = async (req, res) => {
     const recentPosts = res.locals.recentPosts;
 
     const post = await Post.findById(req.params.id);
+    const comments = await Comments.find({ post: post._id});
     res.render("post.ejs", { 
       post: post, 
       title: post.title,
       moment: moment,
-      recentPosts: recentPosts,   
+      recentPosts: recentPosts,
+      comments: comments,
+      commentCount: comments.length,   
     });
   } catch (err) {
     console.log(err);
