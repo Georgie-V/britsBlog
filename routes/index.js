@@ -3,6 +3,7 @@ const router = express.Router()
 const postsController = require("../controllers/post");
 const commentsController = require('../controllers/comments')
 const { getRecentPosts } = require('../middleware/recentPosts');
+const { handleSend } = require('../middleware/recentPosts');
 
 // @desc Main page
 // @route GET /

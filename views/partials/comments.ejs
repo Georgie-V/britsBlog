@@ -13,7 +13,7 @@
                 <h3 class="comment-name"><%= comment.name %></h3>
                 <span class="date"><i><%= moment(comment.createdAt).format('MMMM Do, YYYY @ h:mm a'); %></i></span>
             </div>
-            <%- comment.comment %>
+            <%= comment.comment %>
         </article>
     <% }) %>
 </div>
@@ -21,32 +21,44 @@
 <!-- Comment Submission Form -->
 
 <div class="inner">
-    <form action="/post/<%= post._id %>/comment/add" method="POST" class="row">
-        
+    <h2>Leave a Reply</h2>
+    <p><i>Your email address will not be published. Required fields are marked *</i></p>
+    <form id="comment-form" action="/post/<%= post._id %>/comment/add" method="POST" class="row">
         <div class="col-12">
             <div class="input-field">
-                <label for="comment">Comment:</label>
+                <label for="comment">Comment*</label>
                 <textarea id="comment" name="comment"></textarea>
             </div>
         </div>
 
         <div class="col-6">
             <div class="input-field">
-                <label for="name">Name:</label>
+                <label for="name">Name*</label>
                 <input type="text" id="name" name="name">
             </div>
         </div>
 
         <div class="col-6">
             <div class="input-field">
-                <label for="email">Email:</label>
+                <label for="email">Email*</label>
                 <input type="text" id="email" name="email">
             </div>
         </div>
 
-        <div>
-            <input type="submit" value="Save">
-            <a href="/post/<%= post._id %>" class="btn orange">Cancel</a>
-        </div>
+            <button
+                class="g-recaptcha" 
+                data-sitekey="6LfkPjUqAAAAAPzPWZCtBYsVcgCUTw4YAfoyktFo"
+                data-callback='onSubmit' 
+                data-action='/post/<%= post._id %>/comment/add'
+                type="submit" 
+                class="small" 
+            >Submit</button>
+        <script>
+            function onSubmit(token) {
+              document.getElementById("comment-form").submit();
+              console.log(token);
+            }
+          </script>
+         
     </form>
 </div>

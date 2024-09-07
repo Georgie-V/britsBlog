@@ -9,6 +9,7 @@ const methodOverride = require('method-override');
 const logger = require('morgan');
 const connectDB = require("./config/database");
 const adminRoutes = require('./routes/admin');
+const fetch = require('isomorphic-fetch');
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
